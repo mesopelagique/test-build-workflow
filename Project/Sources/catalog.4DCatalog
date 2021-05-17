@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="BuildSuccess" uuid="37EA2FB5D7CA480D8213B5F105CA4670" collation_locale="en-gb">
+	<schema name="DEFAULT_SCHEMA"/>
+</base>

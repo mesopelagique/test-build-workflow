@@ -22,10 +22,16 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Action
         run: |
-          echo "Download 4D app"
+          workingDir=$(mktemp -d -t ci-XXXXXXXXXX)
+          
+          echo "📦 Download Builder app"
+          # git clone  --branch v1 https://github.com/mesopelagique/build-action.git -o $workingDir 
+          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.1/Compilator.zip --output build-action.zip
+          unzip -qq build-action.zip $workingDir
 
-          echo "Download Builder app"
-          git clone  --branch v1 https://github.com/mesopelagique/build-action.git -o $(pwd)/Compiler
-          # curl -L https://github.com/mesopelagique/build-action/releases/latest/download/build-action.zip --output build-action.zip
-
-
+          echo "🟦 Download 4D app"
+          curl ${SERVER_URL} -o 4DServer.zip
+          unzip -qq 4DServer.zip -d $workingDir
+          rm -f 4DServer.zip
+          
+          find $workingDir

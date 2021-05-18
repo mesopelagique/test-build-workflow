@@ -40,9 +40,11 @@ jobs:
           compiler="$workingDir/4D.app/Contents/MacOS/4D"
           if [[ ! -d "$compiler" ]]; then
             compiler="$workingDir/tool4d.app/Contents/MacOS/4D"
+            ls "$compiler"
           fi
           if [[ ! -d "$compiler" ]]; then
             compiler="$workingDir/4D Server.app/Contents/MacOS/4D Server"
+            ls "$compiler"
           fi
           echo $compiler
 

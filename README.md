@@ -12,3 +12,11 @@ Repository used to test database https://github.com/mesopelagique/build-action w
 ## branch with compilation failure
 
 [![build](https://github.com/mesopelagique/test-build-workflow/actions/workflows/build.yml/badge.svg?branch=feature%2Ffailure)](https://github.com/mesopelagique/test-build-workflow/actions/workflows/build.yml?query=branch%3Afeature%2Ffailure)
+
+## download last release compiled and attached
+
+[![release](https://img.shields.io/github/v/release/mesopelagique/test-build-workflow.svg)](https://github.com/mesopelagique/test-build-workflow/releases/latest)
+
+status of release
+
+[![release workflow](https://github.com/mesopelagique/test-build-workflow/actions/workflows/release.yml/badge.svg)](https://github.com/mesopelagique/test-build-workflow/actions/workflows/release.yml)

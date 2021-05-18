@@ -1,28 +1,20 @@
-name: build
+name: release
 
 on:
-  push:
-    branches:
-      - main
-    paths: 
-      - 'Project/**'
-      - '.github/workflows/build.yml'
-  pull_request:
-    branches:
-      - main
-    paths: 
-      - 'Project/**'
-      - '.github/workflows/build.yml'
-  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build Action
+      - name: Build and release action   
         run: |
           project="Project/BuildSuccess.4DProject" # if empty will launch a find and the first will be used
           failedOnWarning=1 # default is true/1
           compilationOptions="" # for instance {\"typeInference\": \"none\"} 
           curl -fsSL https://raw.githubusercontent.com/mesopelagique/build-action/main/run.sh | bash -s ${{ secrets.SERVER_URL }} "$project" $failedOnWarning "$compilationOptions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          RELEASE: 1

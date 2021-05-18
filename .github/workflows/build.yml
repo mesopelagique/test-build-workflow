@@ -26,7 +26,7 @@ jobs:
           
           echo "📦 Download Builder app"
           # git clone https://github.com/mesopelagique/build-action.git -o $workingDir 
-          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.2/Compilator.zip --output build-action.zip
+          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.3/Compilator.zip --output build-action.zip
           unzip -qq build-action.zip -d $workingDir
           workingDir="$workingDir/Compilator.4dbase"
 
@@ -35,9 +35,7 @@ jobs:
           unzip -qq 4DServer.zip -d $workingDir
           rm -f 4DServer.zip
 
-          #find $workingDir
-
           echo "🧸 Launch entrypoint"
           chmod +x $workingDir/entrypoint.sh
-          # $workingDir/entrypoint.sh "project file" "release or not as 1 or 0" "compilation options"
+          # $workingDir/entrypoint.sh "project file" "fail On Warning 0 or 1" "compilation options in json format"
           $workingDir/entrypoint.sh "Project/BuildSuccess.4DProject" "" ""

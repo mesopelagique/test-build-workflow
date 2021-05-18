@@ -38,10 +38,10 @@ jobs:
           #find $workingDir
           ls $workingDir/tool4d.app/Contents/MacOS/4D
           compiler="$workingDir/4D.app/Contents/MacOS/4D"
-          if [ ! -d "$compiler" ]; then
+          if [[ ! -d "$compiler" ]]; then
             compiler="$workingDir/tool4d.app/Contents/MacOS/4D"
           fi
-          if [ ! -d "$compiler" ]; then
+          if [[ ! -d "$compiler" ]]; then
             compiler="$workingDir/4D Server.app/Contents/MacOS/4D Server"
           fi
           echo $compiler

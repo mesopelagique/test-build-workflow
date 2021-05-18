@@ -2,7 +2,7 @@
 
 Repository used to test database https://github.com/mesopelagique/build-action without the action, just the database and github workflow
 
-⚠️ The current workflow reference `${{ secrets.SERVER_URL }}` so if you copy it in your repository you must provide the URL to download a 4D v19 instance in your [repository secret](https://docs.github.com/en/actions/reference/encrypted-secrets).
+⚠️ The current workflow reference `${{ secrets.SERVER_URL }}` so if you copy it in your repository you must provide the URL to download a macOS 4D v19 instance in your [repository secret](https://docs.github.com/en/actions/reference/encrypted-secrets).
 > The url to define secrets is `https://github.com/<owner>/<reponame>/settings/secrets/actions`
 
 ## main branch

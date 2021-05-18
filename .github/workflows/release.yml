@@ -11,21 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build and release action   
         run: |
-          workingDir=$(mktemp -d -t ci-XXXXXXXXXX)
-
-          echo "📦 Download Builder app"
-          #curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.5/Compilator.zip --output build-action.zip
-          #unzip -qq build-action.zip -d $workingDir
-          workingDir="$workingDir/Compilator.4dbase"
-          git clone --branch v1 https://github.com/mesopelagique/build-action.git $workingDir 
-          echo "🟦 Download 4D app"
-          curl ${{ secrets.SERVER_URL }} -o 4DServer.zip
-          unzip -qq 4DServer.zip -d $workingDir
-          rm -f 4DServer.zip
-          echo "🧸 Launch entrypoint"
-          chmod +x $workingDir/entrypoint.sh
-          # $workingDir/entrypoint.sh "project file" "fail On Warning 0 or 1" "compilation options in json format"
-          $workingDir/entrypoint.sh "Project/BuildSuccess.4DProject" "" ""
+          project="Project/BuildSuccess.4DProject" # if empty will launch a find and the first will be used
+          failedOnWarning=1 # default is true/1
+          compilationOptions="" # for instance {\"typeInference\": \"none\"} 
+          curl -fsSL https://raw.githubusercontent.com/mesopelagique/build-action/main/run.sh | bash -s ${{ secrets.SERVER_URL }} "$project" $failedOnWarning "$compilationOptions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
           RELEASE: 1

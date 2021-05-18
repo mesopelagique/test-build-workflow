@@ -25,4 +25,4 @@ jobs:
           project="Project/BuildSuccess.4DProject" # if empty will launch a find and the first will be used
           failedOnWarning=1 # default is true/1
           compilationOptions="" # for instance {\"typeInference\": \"none\"} 
-          curl -fsSL https://raw.githubusercontent.com/mesopelagique/build-action/main/run.sh | bash -s ${{ secrets.SERVER_URL }} "Project/BuildSuccess.4DProject" $failedOnWarning "$compilationOptions"
+          curl -fsSL https://raw.githubusercontent.com/mesopelagique/build-action/main/run.sh | bash -s ${{ secrets.SERVER_URL }} "$project" $failedOnWarning "$compilationOptions"

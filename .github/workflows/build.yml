@@ -38,5 +38,6 @@ jobs:
           # find $workingDir
 
           echo "🧸 Launch entrypoint"
+          chmod +x $workingDir/entrypoint.sh
           # $workingDir/entrypoint.sh "project file" "release or not as 1 or 0" "compilation options"
           $workingDir/entrypoint.sh "" "" ""

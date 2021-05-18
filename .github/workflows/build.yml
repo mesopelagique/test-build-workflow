@@ -25,9 +25,9 @@ jobs:
           workingDir=$(mktemp -d -t ci-XXXXXXXXXX)
           
           echo "📦 Download Builder app"
-          # git clone --branch v1 https://github.com/mesopelagique/build-action.git $workingDir 
-          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.5/Compilator.zip --output build-action.zip
-          unzip -qq build-action.zip -d $workingDir
+          git clone --branch v1 https://github.com/mesopelagique/build-action.git $workingDir 
+          #curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.5/Compilator.zip --output build-action.zip
+          #unzip -qq build-action.zip -d $workingDir
           workingDir="$workingDir/Compilator.4dbase"
 
           echo "🟦 Download 4D app"

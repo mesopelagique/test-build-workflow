@@ -26,7 +26,7 @@ jobs:
           
           echo "📦 Download Builder app"
           # git clone https://github.com/mesopelagique/build-action.git -o $workingDir 
-          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.3/Compilator.zip --output build-action.zip
+          curl -L https://github.com/mesopelagique/build-action/releases/download/0.0.4/Compilator.zip --output build-action.zip
           unzip -qq build-action.zip -d $workingDir
           workingDir="$workingDir/Compilator.4dbase"
 

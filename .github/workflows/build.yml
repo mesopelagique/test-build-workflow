@@ -30,7 +30,7 @@ jobs:
           unzip -qq build-action.zip -d $workingDir
 
           echo "🟦 Download 4D app"
-          curl ${SERVER_URL} -o 4DServer.zip
+          curl ${{ secrets.SERVER_URL }} -o 4DServer.zip
           unzip -qq 4DServer.zip -d $workingDir
           rm -f 4DServer.zip
           
